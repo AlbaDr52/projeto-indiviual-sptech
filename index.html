@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="img">
+        <div class="opc">
+            </div>
+            <div class="testeH">
+                <div>
+                <img src="imagens/logoteste.png" style="width: 80px; margin: 3px">
+                </div>
+                <div style="list-style: none; display:flex; justify-content:space-between; width: 300px">
+                    <li><button class="botaoMeio"> Sobre mim </button></li>
+                    <li> <a href="#carro"> <button class="botaoMeio"> Carros </button>
+                    </a></li>
+                    <li> <a href="#minigame"> <button class="botaoMeio"> mini games </button> </a></li>
+                </div>
+                <div style="margin: 10px; list-style:none; display: flex; justify-content:space-between; position:relative; right:3%;">
+                    <li><button class="botao"> login </button></li>
+                    <li><button class="botao"> cadastro </button></li>
+                </div>
+            </div>
+            <div class="texto-left">jaja tem o sobre mim</div>     
+        </div>
+    </div>
+    <div id="carro" class="imgB">
+        <div class="opc">
+            <div class="texto-right">jaja tem o sobre carros</div> 
+               
+        </div>
+    </div>
+    <div class="imgBAA">
+        <div class="opc"></div>
+    </div>
+    </div>
+    <div id="minigame" class="imgC">
+        <div class="opc">
+            <div class="texto-right">jaja sobre o minigame de reação</div>
+            <div class="texto-left">jaja sobre o minigame de pista</div>     
+        </div>
+    </div>
+    
+
+</body>
+<script>
+    const root = document.documentElement;
+ 
+document.addEventListener('mousemove', evt => {
+    let x = evt.clientX / innerWidth;
+    let y = evt.clientY / innerHeight;
+ 
+    root.style.setProperty('--mouse-x', x);
+    root.style.setProperty('--mouse-y', y);
+});
+</script>
+</html>
