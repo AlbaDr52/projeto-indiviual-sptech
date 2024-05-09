@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="img">
+    <div class="img" id="sobremim">
         <div class="opc">
             </div>
             <div class="testeH">
                 <div>
-                <img src="imagens/logoteste.png" style="width: 80px; margin: 3px">
+                <a href=" #sobremim">  <img src="imagens/logoteste.png" style="width: 80px; margin: 3px"></a>
                 </div>
                 <div style="list-style: none; display:flex; justify-content:space-between; width: 300px">
-                    <li><button class="botaoMeio"> Sobre mim </button></li>
+                    <li> <a href="#sobremim"> <button class="botaoMeio"> Sobre mim </button> </a></li>
                     <li> <a href="#carro"> <button class="botaoMeio"> Carros </button>
                     </a></li>
                     <li> <a href="#minigame"> <button class="botaoMeio"> mini games </button> </a></li>
@@ -56,6 +56,8 @@ document.addEventListener('mousemove', evt => {
  
     root.style.setProperty('--mouse-x', x);
     root.style.setProperty('--mouse-y', y);
+
+    
 });
 </script>
 </html>
