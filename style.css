@@ -1,5 +1,6 @@
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
+
 }
 body {
   margin: 0;
@@ -40,8 +41,8 @@ body {
   background: transparent
     radial-gradient(
       at calc(var(--mouse-x, 0) * 100%) calc(var(--mouse-y, 0) * 100%),
-      rgb(42, 16, 208),
-      rgb(28, 26, 26)
+      rgb(66, 38, 245),
+      rgba(19, 19, 20, 0.979)
     )
     no-repeat 0 0;
   height: 100vh;
