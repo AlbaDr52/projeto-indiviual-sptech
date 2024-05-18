@@ -7,7 +7,7 @@ body {
 .img {
   margin: 0;
   padding: 0;
-  background: url("imagens/porshe.jpg");
+  background: url("../imagens/porshe.jpg");
   background-size: cover;
   background-color: rgba(0, 0, 0);
   position: relative;
@@ -16,7 +16,7 @@ body {
 .imgB {
   margin: 0;
   padding: 0;
-  background: url("imagens/gtr.jpg");
+  background: url("../imagens/gtr.jpg");
   background-size: cover;
   background-color: rgba(0, 0, 0);
   position: relative;
@@ -50,7 +50,7 @@ body {
 .imgC {
   margin: 0;
   padding: 0;
-  background: url("imagens/uptsi.jpg");
+  background: url("../imagens/uptsi.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgba(0, 0, 0);

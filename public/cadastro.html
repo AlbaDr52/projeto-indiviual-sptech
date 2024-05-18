@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    nome
+    <input type="text" id="input_nome"> <br>
+    e-mail
+    <input type="text" id="input_email"> <br>
+    senha
+    <input type="text" id="input_senha"> <br>
+    confirmação de senha
+    <input type="text" id="input_senhaConfirmada"> <br>
+    <button onclick="cadastrar()">cadastrar</button>
+</body>
+<script>
+    function cadastrar(){
+        const nomeConst = input_nome.value
+        const emailConst = input_email.value
+        const senhaConst = input_senha.value
+        // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeConst,
+          emailServer: emailConst,
+          senhaServer: senhaConst
+        }),
+      })
+    
+    }
+</script>
+</html>

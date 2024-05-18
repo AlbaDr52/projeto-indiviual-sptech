@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    email
+    <input type="text" id="input_email"> <br>
+    senha
+    <input type="text"  id="input_senha"> <br>
+    <button onclick="entrar()">entrar</button>
+</body>
+<script>
+    function entrar() {
+
+        const emailConst = input_email.value;
+        const senhaConst = input_senha.value;
+
+
+        console.log("FORM LOGIN: ", emailConst);
+        console.log("FORM SENHA: ", senhaConst);
+        
+
+        fetch("/usuarios/autenticar", {
+            
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            
+            body: JSON.stringify({
+                emailServer: emailConst,
+                senhaServer: senhaConst
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+
+                    setTimeout(function () {
+                        window.location = "./index.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+    }
+
+</script>
+</html>
