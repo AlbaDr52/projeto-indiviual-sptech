@@ -1,8 +1,25 @@
 var medidaModel = require("../models/medidaModel");
 
+
+function buscarMedidaPorUsuario(req, res) {
+    var idUsuario = req.params.idUsuario;
+  
+    medidaModel.buscarMedidaPorUsuario(idUsuario).then((resultado) => {
+      if (resultado.length > 0) {
+        res.status(200).json(resultado);
+      } else {
+        res.status(204).json([]);
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+      console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+  }
+
 function buscarUltimasMedidas(req, res) {
 
-    const limite_linhas = 7;
+    const limite_linhas = 10;
 
     var idAquario = req.params.idAquario;
 
@@ -42,6 +59,7 @@ function buscarMedidasEmTempoReal(req, res) {
 }
 
 module.exports = {
+    buscarMedidaPorUsuario,
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal
 
