@@ -1,21 +1,120 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="../js/sessao.js" type="text/javascript"></script>
-
-
-</head>
-<body onload="validarSessao()">
-    <input type="text" id="variavel_teste">
-    <button onclick="atribuir()">atribuir</button>
-</body>
-<script>
-    function atribuir(){
-        const teste = variavel_teste.value
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+  <body onload="validarSessao()">
+    <div class="imgMiniGame">
+      <div class="opc">
+        <div class="testeH">
+          <div>
+          <a href=" index.html">  <img src="/imagens/logoteste.png" style="width: 80px; margin: 3px"></a>
+          </div>
+          <div style="list-style: none; display:flex; justify-content:space-between; width: 300px">
+              <li> <a href="index.html"> <button class="botaoMeio"> Sobre mim </button> </a></li>
+              <li> <a href="index.html#carro"> <button class="botaoMeio"> Carros </button>
+              </a></li>
+              <li> <a href="index.html#minigame"> <button class="botaoMeio"> Mini games </button> </a></li>
+          </div>
+          <div style="margin: 10px; list-style:none; display: flex; justify-content:space-between; position:relative; right:3%;">
+              <li> <a href="dashboard.html"> <button class="botaoDash" > Dashboard </button></li> </a>
+          </div>
+          </div>
+        <div class="card3">
+          <div class="farol">
+            <div class="luz1"></div>
+            <div class="luz1"></div>
+            <div class="luz" id="luz1"></div>
+            <div class="luz" id="luz2"></div>
+          </div>
+          <div class="farol">
+            <div class="luz1"></div>
+            <div class="luz1"></div>
+            <div class="luz" id="luz3"></div>
+            <div class="luz" id="luz4"></div>
+          </div>
+          <div class="farol">
+            <div class="luz1"></div>
+            <div class="luz1"></div>
+            <div class="luz" id="luz5"></div>
+            <div class="luz" id="luz6"></div>
+          </div>
+          <div class="farol">
+            <div class="luz1"></div>
+            <div class="luz1"></div>
+            <div class="luz" id="luz7"></div>
+            <div class="luz" id="luz8"></div>
+          </div>
+          <div class="farol">
+            <div class="luz1"></div>
+            <div class="luz1"></div>
+            <div class="luz" id="luz9"></div>
+            <div class="luz" id="luz10"></div>
+          </div>
+          <div class="suporte"></div>
+        </div>
+        <div class="DivBotaoMiniGame">
+          <button onclick="troca()" class="botaoMiniGame"> <br>START  <br>―</button> <br />
+          <button
+            onmousedown="endPegarReacao()"
+            class="botaoMiniGame"
+            id="botao"
+          >
+            STOP
+          </button>
+        </div>
+        <div id="mensagens" class="divMensagens"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let i = 1;
+    function myLoop() {
+      setTimeout(function () {
+        let troca = document.getElementById("luz" + i);
+        troca.style.background = "red";
+        troca.style.boxShadow = "0 0px 10px #f40b0b,  0 0 10px #f40b0b inset";
+        i++;
+        troca = document.getElementById("luz" + i);
+        troca.style.background = "red";
+        troca.style.boxShadow = "0 0px 10px #f40b0b,  0 0 10px #f40b0b inset";
+        i++;
+        if (i < 10) {
+          myLoop();
+        }
+      }, 1000);
     }
-</script>
+    function troca() {
+      myLoop();
+      setTimeout(apagarLuzes, numeroParaInicio(6000, 9000));
+    }
+    function apagarLuzes() {
+      for (contador = 1; contador <= 10; contador++) {
+        let troca = document.getElementById("luz" + contador);
+        troca.style.background = "#2f2e2e";
+        troca.style.boxShadow = "inherit"
+        
+        i = 1;
+      }
+      console.log("passou aq");
+      botao.style.display = `block`;
+      pegarReacao();
+    }
+    function numeroParaInicio(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+    function pegarReacao() {
+      timer = new Date();
+    }
+    function endPegarReacao() {
+      let timerEnd = new Date() - timer;
+      console.log(timerEnd);
+      mensagens.innerHTML = `O SEU TEMPO FOI DE: ${timerEnd/1000}s`;
+    }
+  </script>
 </html>

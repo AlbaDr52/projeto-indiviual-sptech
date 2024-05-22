@@ -1,6 +1,8 @@
 html {
   scroll-behavior: smooth !important;
-
+}
+button{
+  cursor: pointer;
 }
 body {
   margin: 0;
@@ -22,7 +24,6 @@ body {
   background-color: rgba(0, 0, 0);
   position: relative;
   height: 100vh;
-
 }
 .imgBA {
   margin: 0;
@@ -33,7 +34,6 @@ body {
   background-color: rgba(0, 0, 0);
   position: relative;
   height: 100vh;
-
 }
 .imgBAA {
   margin: 0;
@@ -46,7 +46,6 @@ body {
     )
     no-repeat 0 0;
   height: 100vh;
-
 }
 .imgC {
   margin: 0;
@@ -57,14 +56,21 @@ body {
   background-color: rgba(0, 0, 0);
   position: relative;
   height: 100vh;
-
+}
+.imgDash {
+  margin: 0;
+  padding: 0;
+  background: url("../imagens/drift.webp");
+  background-size: cover;
+  background-color: rgba(0, 0, 0);
+  position: relative;
+  height: 100vh;
 }
 .opc {
   width: 100%;
   height: 100%;
   position: absolute;
   background: rgba(0, 0, 0, 0.6);
-  
 }
 .testeH {
   display: flex;
@@ -76,7 +82,6 @@ body {
   position: fixed;
   width: 100%;
   z-index: +5;
-
 }
 .botaoMeio {
   transition-duration: 0.5s;
@@ -126,24 +131,25 @@ body {
   left: 80%;
   bottom: 10%;
 }
-.botaoPagA{
-transition-duration: 0.5s;
-margin: 10px;
-list-style: none;
-position: absolute;
-height: 35px;
-width: 170px;
-background-color: rgba(202, 39, 39, 0.544);
-border-radius: 20px;
-border-style: solid;
-border-color: rgba(255, 255, 255, 0.463);
-border-width: 3px;
-color: rgba(255, 255, 255, 0.804);
-font-size: 16px;
-left: 10%;
-bottom: 10%;
+.botaoPagA {
+  transition-duration: 0.5s;
+  margin: 10px;
+  list-style: none;
+  position: absolute;
+  height: 35px;
+  width: 170px;
+  background-color: rgba(202, 39, 39, 0.544);
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.463);
+  border-width: 3px;
+  color: rgba(255, 255, 255, 0.804);
+  font-size: 16px;
+  left: 10%;
+  bottom: 10%;
 }
-.botaoPag:hover, .botaoPagA:hover{
+.botaoPag:hover,
+.botaoPagA:hover {
   background-color: rgba(202, 39, 39, 0.863);
   border-color: rgba(255, 255, 255, 0.895);
   color: rgb(255, 255, 255);
@@ -177,30 +183,30 @@ bottom: 10%;
   left: 70%;
 }
 
-.card1{
+.card1 {
   display: flex;
   justify-content: center;
   height: 450px;
   width: 350px;
   border-radius: 12px;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.4),
-  0 17px 50px 0 rgba(0, 0, 0, 0.19);;
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
   border-width: 0px;
   border-style: solid;
   position: absolute;
   color: rgb(28, 196, 196, 0.6);
   background-color: rgba(9, 9, 9, 0.803);
   bottom: 20%;
-margin-left: 15%;
+  margin-left: 15%;
 }
-.card2{
+.card2 {
   display: flex;
   justify-content: center;
   height: 450px;
   width: 350px;
   border-radius: 12px;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.4),
-  0 17px 50px 0 rgba(0, 0, 0, 0.19);;
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
   border-width: 0px;
   border-style: solid;
   position: absolute;
@@ -208,19 +214,177 @@ margin-left: 15%;
   background-color: rgba(9, 9, 9, 0.803);
   bottom: 20%;
   margin-right: 15%;
-right: 0 ;
+  right: 0;
+}
+.card3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+  width: 50%;
+  border-radius: 12px;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.4),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  border-width: 0px;
+  border-style: solid;
+  color: rgb(28, 196, 196, 0.6);
+  background-color: rgba(9, 9, 9, 0.803);
+  position: absolute;
+  left: 25%;
+  bottom: 23%;
 }
 body::-webkit-scrollbar {
   width: 1px;
-  background-color:rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0);
 }
- 
+
 body::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
- 
+
 body::-webkit-scrollbar-thumb {
   background-color: rgb(28, 196, 196, 0.6);
   outline: 1px solid rgb(97, 101, 106);
   border-radius: 7px;
+}
+.imgMiniGame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background: url("../imagens/f1.jpg");
+  background-size: cover;
+  background-color: rgba(0, 0, 0);
+  height: 100vh;
+}
+.suporte {
+  background-color: black;
+  height: 15px;
+  width: 50%;
+  position: absolute;
+  right: 25%;
+  box-shadow : 0 0 5px  #000000;
+}
+.farol {
+  border-radius: 8px;
+  background-color: rgb(0, 0, 0);
+  height: 300px;
+  width: 90px;
+  margin-left: 20px;
+  z-index: +1;
+  box-shadow : 0px 0px 30px  #000000;
+}
+.luz1 {
+  height: 65px;
+  width: 65px;
+  background-color: #2f2e2e;
+  border-radius: 50%;
+  margin-left: 14%;
+  margin-top: 9%;
+}
+.luz {
+  height: 65px;
+  width: 65px;
+  background-color: #2f2e2e;
+  border-radius: 50%;
+  margin-left: 14%;
+  margin-top: 9%;
+}
+.DivBotaoMiniGame {
+  width: 100px;
+  height: 300px;
+  position: absolute;
+  left: 68%;
+  bottom: 25%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.divMensagens{
+    width: 400px;
+    height: 100px;
+    position: absolute;
+    left: 38.5%;
+    bottom: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: wheat;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.botaoMiniGame {
+  margin-left: 20px;
+  border-radius: 50%;
+  border-width: 7px;
+  width: 90px;
+  height: 90px;
+  background-color: rgb(19, 19, 19);
+  border-style: solid;
+  font-weight:bolder;
+  color: #505353;
+  border: 1px solid #25938d;
+  box-shadow:  0 5px 5px #000000,  0 0 5px #0000009f inset;
+}
+.botaoMiniGame:hover,
+.botaoDash:hover {
+  transition-duration: 0.3s;
+  color: rgba(9, 233, 222, 0.638);
+  box-shadow: 
+    0 0px 5px #0bf4ec,  0 0 5px #0bf4dd inset;
+}
+
+.botaoDash:hover {
+  transition-duration: 0.3s;
+  background-color: #0a0a0a68;
+  color: rgba(9, 233, 222, 0.638);
+  box-shadow: 
+    0 0px 5px #0bf4ec,  0 0 5px #0bf4dd inset;
+}
+.botaoMiniGame:active,
+.botaoDash:active {
+  transition-duration: 0.2s;
+  color: rgba(44, 49, 36, 0.745);
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.4),
+    0 9px 25px 0 rgba(0, 0, 0, 0.19);
+}
+.botaoDash {
+  margin-left: 20px;
+  border-radius: 50%;
+  border-width: 7px;
+  width: 90px;
+  height: 90px;
+  background-color: rgba(19, 19, 19, 0);
+  border-style: solid;
+  font-weight:bolder;
+  color: #2e2a2a;
+  border: 1px solid #25938d5b;
+}
+.grafico{
+height: 70%;
+width: 80%;
+position: absolute;
+top: 20%;
+
+}
+.cardDash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  width: 60%;
+  border-radius: 12px;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.4),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  border-width: 0px;
+  border-style: solid;
+  color: rgb(255, 255, 255);
+  background-color: rgba(9, 9, 9, 0.803);
+  position: absolute;
+  left: 18%;
+  bottom: 10%;
 }
