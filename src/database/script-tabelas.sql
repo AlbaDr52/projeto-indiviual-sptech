@@ -1,47 +1,18 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+drop database alba;
 
-/*
-comandos para mysql server
-*/
+CREATE DATABASE alba;
 
-CREATE DATABASE aquatech;
+USE alba;
 
-USE aquatech;
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14)
-);
 
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+	email VARCHAR(50) unique,
+	senha VARCHAR(50)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-);
-
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
-
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
 
 create table medida (
@@ -52,5 +23,18 @@ create table medida (
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
+insert into usuario (nome, email, senha) values 
+('pablo','pablo','pablo');
+insert into medida (reacao, momento, fk_usuario) values
+('0.300',now(),'1');
+insert into medida (reacao, momento, fk_usuario) values
+('0.350',now(),'1');
+insert into medida (reacao, momento, fk_usuario) values
+('0.200',now(),'1');
+insert into medida (reacao, momento, fk_usuario) values
+('0.320',now(),'1');
+insert into medida (reacao, momento, fk_usuario) values
+('0.333',now(),'1');
+select * from medida;
+select * from usuario;
+
