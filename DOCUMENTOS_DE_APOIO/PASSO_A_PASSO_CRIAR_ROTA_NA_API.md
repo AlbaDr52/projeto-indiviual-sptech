@@ -59,7 +59,8 @@ var router = express.Router();
 **Importando a controller que vai ser criada posteriormente:**
 
 ```jsx
-var carroController = require("../controllers/carroController");
+var express = require("express");
+var router = express.Router();
 ```
 
 **Criando a rota que vai indicar /carros/cadastrar ao ser acessada pelo front-end. O /cadastrar é do tipo post e o /listar é do tipo get:**

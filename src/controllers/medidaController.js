@@ -5,11 +5,9 @@ function buscarMedidaPorUsuario(req, res) {
     var idUsuario = req.params.idUsuario;
   
     medidaModel.buscarMedidaPorUsuario(idUsuario).then((resultado) => {
-      if (resultado.length > 0) {
+      if (resultado.length >= 0) {
         res.status(200).json(resultado);
-      } else {
-        res.status(204).json([]);
-      }
+      } 
     }).catch(function (erro) {
       console.log(erro);
       console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
@@ -21,12 +19,12 @@ function buscarUltimasMedidas(req, res) {
 
     const limite_linhas = 10;
 
-    var idAquario = req.params.idAquario;
+    var idAquario = req.params.idUsuario;
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
     medidaModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
-        if (resultado.length > 0) {
+        if (resultado.length >= 0) {
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")

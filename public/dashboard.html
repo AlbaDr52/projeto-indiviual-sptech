@@ -47,20 +47,20 @@
   window.onload = exibirMedidasDoUsuario();
 
   function exibirMedidasDoUsuario() {
-    var medidas = JSON.parse(sessionStorage.MEDIDAS);
+    var medidas = JSON.parse(sessionStorage.ID_USUARIO);
 
     // Supondo que medidas seja um único objeto ou um array com um único objeto
     var item = Array.isArray(medidas) ? medidas[0] : medidas;
 
     document.getElementById("graficos").innerHTML += `
-            <div id="grafico${item.fk_usuario}" class="display-none">
+            <div id="grafico${item}" class="display-none">
                 <div >
-                    <canvas id="myChartCanvas${item.fk_usuario}"></canvas>
+                    <canvas id="myChartCanvas${item}"></canvas>
                 </div>
             </div>
         `;
 
-    obterDadosGrafico(item.fk_usuario);
+    obterDadosGrafico(item);
   }
 
   // O gráfico é construído com três funções:

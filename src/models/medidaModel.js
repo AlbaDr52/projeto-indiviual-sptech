@@ -5,7 +5,7 @@ function buscarUltimasMedidas(idUsuario, limite_linhas) {
     var instrucaoSql = `SELECT 
                         reacao
                         momento,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
+                        DATE_FORMAT(momento,'%d/%m-%H:%i:%s') as momento_grafico
                     FROM medida
                     WHERE fk_usuario = ${idUsuario}
                     ORDER BY id DESC LIMIT ${limite_linhas}`;

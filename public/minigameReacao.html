@@ -59,11 +59,11 @@
           <div class="suporte"></div>
         </div>
         <div class="DivBotaoMiniGame">
-          <button onclick="troca()" class="botaoMiniGame"> <br>START  <br>―</button> <br />
+          <button onclick="troca()" class="botaoMiniGame" id="botaostart"> <br>START  <br>―</button> <br />
           <button
             onmousedown="endPegarReacao()"
             class="botaoMiniGame"
-            id="botao"
+            id="botaostop"
           >
             STOP
           </button>
@@ -90,8 +90,10 @@
       }, 1000);
     }
     function troca() {
+      botaostop.disabled = true
       myLoop();
       setTimeout(apagarLuzes, numeroParaInicio(6000, 9000));
+      botaostart.disabled = true
     }
     function apagarLuzes() {
       for (contador = 1; contador <= 10; contador++) {
@@ -101,9 +103,10 @@
         
         i = 1;
       }
+
       console.log("passou aq");
-      botao.style.display = `block`;
       pegarReacao();
+      botaostop.disabled = false
     }
     function numeroParaInicio(min, max) {
       return Math.random() * (max - min) + min;
@@ -112,9 +115,26 @@
       timer = new Date();
     }
     function endPegarReacao() {
-      let timerEnd = new Date() - timer;
+      botaostop.disabled = true
+      botaostart.disabled = false
+      let timerEnd = (new Date() - timer)/1000;
       console.log(timerEnd);
-      mensagens.innerHTML = `O SEU TEMPO FOI DE: ${timerEnd/1000}s`;
+      mensagens.innerHTML = `O SEU TEMPO FOI DE: ${timerEnd}s`;
+      var medidas = JSON.parse(sessionStorage.ID_USUARIO);
+
+      // Supondo que medidas seja um único objeto ou um array com um único objeto
+      var item = Array.isArray(medidas) ? medidas[0] : medidas;
+      fetch(`/reacao/cadastrar/${item}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          reacao: timerEnd,
+        }),
+      })
     }
   </script>
 </html>
