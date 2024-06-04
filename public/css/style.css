@@ -6,6 +6,11 @@ button{
 }
 body {
   margin: 0;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
 }
 .img {
   margin: 0;
@@ -304,7 +309,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .divMensagens{
-    width: 400px;
+    width: 500px;
     height: 100px;
     position: absolute;
     left: 38.5%;
@@ -387,4 +392,82 @@ top: 20%;
   position: absolute;
   left: 18%;
   bottom: 10%;
+}
+
+.card4 {
+  height: 550px;
+  width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.4),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  border-width: 0px;
+  border-style: solid;
+  color: rgb(28, 196, 196, 0.6);
+  background-color: rgba(9, 9, 9, 0.803);
+  position: absolute;
+  left: 35%;
+  top: 20%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.input{
+  border-radius: 5px;
+  color: rgb(28, 196, 196, 0.6);
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid rgb(28, 196, 196, 0.6);
+  outline: none;
+  width: 70%;
+  font-size: 17px;
+  display: flex;
+  text-align: center;
+  height: 40px;
+}
+.input:focus{
+  transition-duration: 0.8s;
+  background-color: rgba(9, 9, 9, 0.878);
+}
+.tituloLogin{
+  position: absolute;
+  bottom: 80%;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(219, 219, 219) ;
+}
+.labelcardLC{
+  position: relative;
+  right: 130px;
+}
+.labelcardLCsenhaC{
+  position: relative;
+  right: 90px;
+}
+.mensagemErro{
+  color: red;
+  font-size: 13px;
+}
+.botaoLC {
+  border: solid;
+  border-radius: 50%;
+  border-width: 2px;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 83%;
+  color: rgba(83, 88, 88, 0.6);
+  background-color: #000000d6;
+
+}
+.botaoLC:hover{
+  transition: 0.3s;
+  color: rgba(9, 233, 222, 0.638);
+  box-shadow: 
+  0 0px 2px #0bf4ec,  0 0 2px #0bf4dd inset;
+}
+.botaoLC:active{
+  transition: 0.2s;
+  background-color: #000000d6;
+  color: rgba(83, 88, 88, 0.6);
 }

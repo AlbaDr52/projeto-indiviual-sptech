@@ -1,41 +1,129 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-</head>
-<body>
-    nome
-    <input type="text" id="input_nome"> <br>
-    e-mail
-    <input type="text" id="input_email"> <br>
-    senha
-    <input type="text" id="input_senha"> <br>
-    confirmação de senha
-    <input type="text" id="input_senhaConfirmada"> <br>
-    <button onclick="cadastrar()">cadastrar</button>
-</body>
-<script>
-    function cadastrar(){
-        const nomeConst = input_nome.value
-        const emailConst = input_email.value
-        const senhaConst = input_senha.value
-        // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          // crie um atributo que recebe o valor recuperado aqui
-          // Agora vá para o arquivo routes/usuario.js
-          nomeServer: nomeConst,
-          emailServer: emailConst,
-          senhaServer: senhaConst
-        }),
-      })
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LovingAutos | Cadastro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="img">
+      <div class="opc">
+        <div class="testeH">
+          <div>
+            <a href="index.html#sobremim">
+              <img
+                src="/imagens/logoteste.png"
+                style="width: 80px; margin: 3px"
+            /></a>
+          </div>
+          <div
+            style="
+              list-style: none;
+              display: flex;
+              justify-content: space-between;
+              width: 300px;
+            "
+          >
+            <li>
+              <a href="index.html#sobremim">
+                <button class="botaoMeio">Sobre mim</button>
+              </a>
+            </li>
+            <li>
+              <a href="index.html#carro"> <button class="botaoMeio">Carros</button> </a>
+            </li>
+            <li>
+              <a href="index.html#minigame">
+                <button class="botaoMeio">Mini games</button>
+              </a>
+            </li>
+          </div>
+          <div
+            style="
+              margin: 10px;
+              list-style: none;
+              display: flex;
+              justify-content: space-between;
+              position: relative;
+              right: 3%;
+            "
+          >
+          <li> <a href="login.html"> <button class="botao" >Login</button></li> </a>
+          <li> <a href="cadastro.html"> <button class="botao">Cadastro</button></li> </a>
+          </div>
+        </div>
+        <div class="card4">
+          <span class="tituloLogin">CADASTRO</span> <br>
+          <label for="input_nome" class="labelcardLC">Nome</label>
+          <input type="text" placeholder="João Silva" id="input_nome"class="input" /> <br />
+          <label for="input_email" class="labelcardLC">E-mail</label>
+          <input type="text" placeholder="joaosilva@gmail.com" id="input_email" class="input"/> <br />
+          <label for="input_senha" class="labelcardLC">Senha</label>
+          <input type="text" placeholder="abcd@767" id="input_senha"class="input" /> <br />
+          <label for="input_senhaConfirmada"  class="labelcardLCsenhaC">Confirme a senha</label>
+          <input type="text" placeholder="abcd@767" id="input_senhaConfirmada"class="input" /> <br />
+          <span class="mensagemErro" id="mensagemErro">  </span> <br>
+          <button onclick="cadastrar()" class="botaoLC">cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let senhaNaoTemNumero = true
+    function verificarNumero(x){
+
+      for(let contador = 0; contador <= 9; contador ++){
+        if (x.indexOf(contador) >= 0){
+          senhaNaoTemNumero = false
+        }
+      }
     }
-</script>
+    function cadastrar() {
+      const nomeConst = input_nome.value;
+      const emailConst = input_email.value;
+      const senhaConst = input_senha.value;
+      const senhaConfirmadaConst = input_senhaConfirmada.value
+      
+      // Enviando o valor da nova input
+      verificarNumero(senhaConst)
+      if (nomeConst == "" || emailConst == "" || senhaConst == ""){
+        mensagemErro.innerHTML=`Preencha todos os campos`
+      }
+      else if (emailConst.indexOf("@") == -1  || emailConst.indexOf(".") == -1){
+        mensagemErro.innerHTML = `Email inválido`
+      } else if (senhaConst.length <= 5){
+        mensagemErro.innerHTML = `A senha deve conter pelo menos 6 caracteres`
+      } else if (senhaConst.indexOf("@") == -1 && senhaConst.indexOf("#") == -1){
+        mensagemErro.innerHTML = `A senha deve conter um caracter especial. # ou @`
+      } else if (senhaNaoTemNumero){
+        mensagemErro.innerHTML = `A senha deve conter um numero de 0 a 9`
+      } else if (senhaConst != senhaConfirmadaConst){
+        mensagemErro.innerHTML = `Senhas não conferem`
+      } else {
+        alert("seja bem vindo")
+        fetch("/usuarios/cadastrar", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            nomeServer: nomeConst,
+            emailServer: emailConst,
+            senhaServer: senhaConst,
+          }),
+        });
+        window.location.href="login.html"
+      }
+
+    }
+  </script>
 </html>

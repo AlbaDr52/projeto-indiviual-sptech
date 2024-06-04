@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>LovingAutos | MiniGame</title>
     <script src="../js/sessao.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
   </head>
@@ -103,8 +103,6 @@
         
         i = 1;
       }
-
-      console.log("passou aq");
       pegarReacao();
       botaostop.disabled = false
     }
@@ -117,13 +115,23 @@
     function endPegarReacao() {
       botaostop.disabled = true
       botaostart.disabled = false
-      let timerEnd = (new Date() - timer)/1000;
-      console.log(timerEnd);
-      mensagens.innerHTML = `O SEU TEMPO FOI DE: ${timerEnd}s`;
-      var medidas = JSON.parse(sessionStorage.ID_USUARIO);
-
-      // Supondo que medidas seja um único objeto ou um array com um único objeto
-      var item = Array.isArray(medidas) ? medidas[0] : medidas;
+      let tempoReacao = (new Date() - timer)/1000;
+      console.log(tempoReacao);
+      mostrarTempo(tempoReacao)
+    }
+    function mostrarTempo(tempoReacao){
+      let tempo = PegarTempo()
+      console.log(tempo)
+      tempo.push(tempoReacao)
+      tempo.sort()
+      mensagens.innerHTML = `O SEU TEMPO FOI DE: ${tempoReacao}s <br>
+      SEU MELHOR TEMPO É DE: ${tempo[0]}`;
+      salvarTempo(tempo)
+      mandarBanco(tempoReacao)
+    }
+    function mandarBanco(tempoReacao){
+      var id = JSON.parse(sessionStorage.ID_USUARIO);
+      var item = Array.isArray(id) ? id[0] : id;
       fetch(`/reacao/cadastrar/${item}`, {
         method: "POST",
         headers: {
@@ -132,9 +140,22 @@
         body: JSON.stringify({
           // crie um atributo que recebe o valor recuperado aqui
           // Agora vá para o arquivo routes/usuario.js
-          reacao: timerEnd,
+          reacao: tempoReacao,
         }),
       })
     }
+    function salvarTempo(x) {
+      sessionStorage.setItem('reactionTimes', JSON.stringify(x));
+  }
+  function PegarTempo() {
+      const timesStr = sessionStorage.getItem('reactionTimes');
+      if (timesStr) {
+          return JSON.parse(timesStr);
+      }
+       else {
+         return [];
+      }
+  }
+
   </script>
 </html>
