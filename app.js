@@ -29,10 +29,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/reacao", reacaoRouter)
-// app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter);
-// app.use("/aquarios", aquariosRouter);
-// app.use("/empresas", empresasRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

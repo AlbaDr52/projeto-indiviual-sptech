@@ -17,7 +17,7 @@ function buscarMedidaPorUsuario(req, res) {
 
 function buscarUltimasMedidas(req, res) {
 
-    const limite_linhas = 10;
+    const limite_linhas = 30;
 
     var idUsuario = req.params.idUsuario;
 

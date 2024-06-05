@@ -21,14 +21,33 @@ body {
   position: relative;
   height: 100vh;
 }
-.imgB {
+.imgLC {
   margin: 0;
   padding: 0;
-  background: url("../imagens/gtr.jpg");
+  background: url("../imagens/porsheP.png ");
   background-size: cover;
   background-color: rgba(0, 0, 0);
   position: relative;
   height: 100vh;
+}
+.imgB {
+  background: url("../imagens/gtr.jpg");
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0);
+  position: relative;
+  height: 100vh;
+}
+.imgSeta{
+  background: url("../imagens/seta-para-baixo.png");
+  background-size: cover;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  left: 47%;
+  top: 85%;
+  opacity: 0.8;
 }
 .imgBA {
   margin: 0;
@@ -87,6 +106,7 @@ body {
   position: fixed;
   width: 100%;
   z-index: +5;
+  opacity: 1;
 }
 .botaoMeio {
   transition-duration: 0.5s;
@@ -167,30 +187,42 @@ body {
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 .texto-left {
-  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 30px;
-  color: rgb(255, 255, 255);
+  color: rgb(216, 203, 203);
   width: 25%;
   height: 25%;
   position: relative;
-  top: 40%;
+  top: 30%;
   left: 5%;
+  text-align: justify;
+}
+.imgB .texto-left {
+  top: 2%;
 }
 .texto-right {
-  text-align: end;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: justify;
   font-size: 30px;
-  color: rgb(255, 255, 255);
+  color: rgb(216, 203, 203);
   width: 25%;
   height: 25%;
   position: relative;
-  top: 50%;
+  top: 30%;
   left: 70%;
+}
+.imgRight{
+  background: url("https://hips.hearstapps.com/roa.h-cdn.co/assets/17/17/1493215717-488gt3.gif?resize=980:*");
+  background-size: 800px;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 800px;
+  height: 400px;
+  top: 30%;
+  left: 48%;
+  z-index: +1;
+  border-radius: 5px;
 }
 
 .card1 {
-  display: flex;
-  justify-content: center;
   height: 450px;
   width: 350px;
   border-radius: 12px;
@@ -198,28 +230,43 @@ body {
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
   border-width: 0px;
   border-style: solid;
-  position: absolute;
   color: rgb(28, 196, 196, 0.6);
   background-color: rgba(9, 9, 9, 0.803);
-  bottom: 20%;
-  margin-left: 15%;
+  position: absolute;
+  top: 25%;
+  left: 38%;
 }
-.card2 {
-  display: flex;
-  justify-content: center;
-  height: 450px;
-  width: 350px;
-  border-radius: 12px;
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.4),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  border-width: 0px;
-  border-style: solid;
-  position: absolute;
+.textoCard1{
   color: rgb(28, 196, 196, 0.6);
-  background-color: rgba(9, 9, 9, 0.803);
-  bottom: 20%;
-  margin-right: 15%;
-  right: 0;
+  position: absolute;
+  top: 10%;
+  left: 30px;
+  right: 30px;
+  text-align: justify;
+}
+.botaoCardMiniGame {
+  border: solid;
+  border-radius: 50%;
+  border-width: 2px;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 34%;
+  top: 75%;
+  color: rgba(83, 88, 88, 0.6);
+  background-color: #000000d6;
+
+}
+.botaoCardMiniGame:hover{
+  transition: 0.3s;
+  color: rgba(9, 233, 222, 0.638);
+  box-shadow: 
+  0 0px 2px #0bf4ec,  0 0 2px #0bf4dd inset;
+}
+.botaoCardMiniGame:active{
+  transition: 0.2s;
+  background-color: #000000d6;
+  color: rgba(83, 88, 88, 0.6);
 }
 .card3 {
   display: flex;
@@ -470,4 +517,46 @@ top: 20%;
   transition: 0.2s;
   background-color: #000000d6;
   color: rgba(83, 88, 88, 0.6);
+}
+.imgSM {
+  margin: 0;
+  padding: 0;
+  background: url("../imagens/porscheAntigo.webp");
+  background-size: cover;
+  background-color: rgba(0, 0, 0);
+  position: relative;
+  height: 100vh;
+}
+.imgSM2 {
+  margin: 0;
+  padding: 0;
+  background: url("../imagens/porscheNovo.jpeg");
+  background-size: cover;
+  background-color: rgba(0, 0, 0);
+  position: relative;
+  height: 100vh;
+}
+.sbRight{
+  background: url("../imagens/eupassado.png");
+  background-size: 400px;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 400px;
+  height: 800px;
+  top: 30%;
+  left: 60%;
+  z-index: +1;
+  border-radius: 5px;
+}
+.sbLeft{
+  background: url("../imagens/carros.png");
+  background-size: 400px;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 30%;
+  left: 10%;
+  z-index: +1;
+  border-radius: 5px;
 }
