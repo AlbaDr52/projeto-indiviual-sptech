@@ -50,7 +50,7 @@
     <div id="minigame" class="imgC">
         <div class="opc">
                 <div class="card1">
-                    <span class="textoCard1">A fórmula 1, topo da tecnologia quando se trata de carros de corrida, usa um sistema de luzes de largada completamente manual. <br> <br> Uma fileira das cinco presentes acendem a cada um segundo, e após um tempo aleatório de 4 a 7 segundos, elas apagam dando a largada. <br> <br> A reação dos pilotos de formula um gira em torno de 200 milissegundos. <br>  <br> Qual será o seu?</span>
+                    <span class="textoCard1">A fórmula 1, topo da tecnologia quando se trata de carros de corrida, usa um sistema de luzes de largada completamente manual. <br> <br> Uma fileira das cinco presentes acendem a cada um segundo, e após um tempo aleatório de 0.2 a 3 segundos, elas apagam dando a largada. <br> <br> A reação dos pilotos de formula um gira em torno de 200 milissegundos. <br>  <br> Qual será o seu?</span>
                      <a href="minigameReacao.html"> <button class="botaoCardMiniGame"> Jogar Agora</button> </a>
                 </div>    
         </div>
@@ -64,7 +64,6 @@
 document.addEventListener('mousemove', evt => {
     let x = evt.clientX / innerWidth;
     let y = evt.clientY / innerHeight;
- 
     root.style.setProperty('--mouse-x', x);
     root.style.setProperty('--mouse-y', y);
 

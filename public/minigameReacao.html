@@ -91,7 +91,7 @@
     function troca() {
       botaostop.disabled = true
       myLoop();
-      setTimeout(apagarLuzes, numeroParaInicio(6000, 9000));
+      setTimeout(apagarLuzes, numeroParaInicio(5200, 8000));
       botaostart.disabled = true
     }
     function apagarLuzes() {
@@ -123,7 +123,7 @@
       console.log(tempo)
       tempo.push(tempoReacao)
       tempo.sort()
-      mensagens.innerHTML = `O SEU TEMPO FOI DE: ${tempoReacao}s <br>
+      mensagens.innerHTML = `O SEU TEMPO FOI DE: ${tempoReacao}s <br> <br>
       SEU MELHOR TEMPO É DE: ${tempo[0]}`;
       salvarTempo(tempo)
       mandarBanco(tempoReacao)
