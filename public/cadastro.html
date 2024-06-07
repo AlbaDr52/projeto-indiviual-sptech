@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LovingAutos | Cadastro</title>
+    <link rel="icon" href="./imagens/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,7 +20,7 @@
           <div>
             <a href="index.html#sobremim">
               <img
-                src="/imagens/logoteste.png"
+                src="/imagens/logo.png"
                 style="width: 80px; margin: 3px"
             /></a>
           </div>
@@ -107,21 +108,35 @@
       } else if (senhaConst != senhaConfirmadaConst){
         mensagemErro.innerHTML = `Senhas não conferem`
       } else {
-        alert("seja bem vindo")
-        fetch("/usuarios/cadastrar", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
+            fetch('/usuarios/cadastrar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+                  body: JSON.stringify({
             // crie um atributo que recebe o valor recuperado aqui
             // Agora vá para o arquivo routes/usuario.js
             nomeServer: nomeConst,
             emailServer: emailConst,
             senhaServer: senhaConst,
           }),
-        });
+        })
+    .then(resposta => {
+        if (!resposta.ok) {
+            return resposta.json().then(error => { throw new Error(error.message); });
+        }
+        return resposta.json();
+    })
+    .then(data => {
+        console.log('Cadastro realizado com sucesso');
+        alert("seja bem vindo")
         window.location.href="login.html"
+    })
+    .catch(error => {
+        alert('Erro ao cadastrar: Usuario ja existente ou credenciais invalidas!!');
+        // Aqui você pode mostrar a mensagem de erro na interface do usuário
+    });
+
       }
 
     }
